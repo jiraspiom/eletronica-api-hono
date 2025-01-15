@@ -9,5 +9,8 @@
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "outDir": "./dist"
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
   }
 }
