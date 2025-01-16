@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
-    "hono": "^4.6.16",
-    "tsup": "^8.3.5"
+    "hono": "^4.6.16"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
