@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc && tsc-alias",
+    "build": "tsc",
     "start": "node dist/index.js"
   },
   "dependencies": {
@@ -12,8 +12,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "^20.11.17",
-    "tsc-alias": "^1.8.10",
-    "tsx": "^4.7.1"
+    "@types/node": "^20.11.17"
   }
 }
