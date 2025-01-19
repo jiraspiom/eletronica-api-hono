@@ -7,8 +7,7 @@ import { dijuntores } from './lib/dijuntores.js'
 import { getFatorCorrecaoAgrupamentoByCircuito } from './lib/getFatorCorrecaoAgrupamento.js'
 import { getFatorCorrecaoTemperaturaByTemperaturaAmbiente } from './lib/getFatorCorrecaoTemperatura.js'
 import { getSessaoNominalbyAperes } from './lib/getSessaoNominalbyAperes.js'
-
-const app = new Hono()
+import { cors } from 'hono/cors'
 
 interface CalcularRequestBody {
   metodo: string
@@ -19,6 +18,19 @@ interface CalcularRequestBody {
   proximoCabo: number
 }
 
+const app = new Hono()
+
+app.use(
+  '*',
+  cors({
+    origin: 'http://localhost:3000',
+    allowHeaders: ['Content-Type', 'Authorization'],
+    allowMethods: ['POST', 'OPTIONS'],
+    exposeHeaders: ['Content-Length'],
+    maxAge: 600,
+    credentials: false,
+  })
+)
 app.get('/', c => {
   return c.json({
     mensaguem: 'Exemplo do para chuveiro de 7500 POST no post_exemple',
@@ -107,7 +119,7 @@ app.post('/calcular', async ctx => {
   }
 })
 
-const port = 3000
+const port = 3333
 console.log(`Server is running on http://localhost:${port}`)
 
 serve({
